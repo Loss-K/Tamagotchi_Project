@@ -3,11 +3,11 @@ Introduction
 ##################################
 
 When I learn any type of code, I try to think of a project that I can continuously work on as I continue to
-work on my education. Sure, I plan to do more projects - but to have one consistent project helps me to improve
-myself over time.
+work on my education. Sure, I plan to do more projects - but I like to have one consistent project helps me to improve
+myself over time and improve my code.
 
 While I have coded Python, I have had no structured training - This will change soon, but wanted to start putting
-together what I know, then as I learn, can apply what I learn not only on the lesson projects, but apply them on
+together what I know. As I learn, I will apply it. Not only on the lesson projects, but apply them on
 one of my own. This is the first one.
 
 
@@ -20,7 +20,7 @@ virtual creature means it will suffer, and possibly virtually die. My project is
 plan to elevate this in some ways by adding some Machine Learning and potentially some AI functionality in the future.
 
 ###
-I did a BEFORE learning Wireframe attempt below. Will be learning the proper way to build a wireframe among the way.
+I did a BEFORE learning Wireframe attempt below. Will be learning the proper way to build a wireframe along the way.
 I will update this link when I do.
 See the wireframe here: https://www.figma.com/file/B47LkEHldEXhJPxGlfDnF5/Tamagotchi-Project?node-id=0%3A1
 ###
@@ -33,7 +33,7 @@ To Do List and Notes
 ######    ######
 Known Bug
 ######    ######
-Commands currently provide Not found with my else statement.
+Commands currently provide Not found with my else statement - Since in the end I will have a GUI, this will be resolved later.
 
 ######    ######
  Reminder Notes
