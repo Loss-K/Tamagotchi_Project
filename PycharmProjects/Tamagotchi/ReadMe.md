@@ -97,7 +97,7 @@ Determine the math for the state on average (ie 47 Hunger, 29 Sleep, 9 Hydrate s
 
 ### Phase Four ###
 
-!!!! ML/AI -> I don't know too much about this yet, but the two ideas I have!!!
+!!!! ML/AI -> I don't know too much about this yet, but the two ideas I have are listed below:
 
 ML -> Machine Learning:
 Use the DB to determine the occurrences and predict future actions and if the user met the future action,
