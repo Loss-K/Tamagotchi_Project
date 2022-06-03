@@ -76,14 +76,6 @@ Create a runtime timer
 
 ### Phase Two ###
 
-Convert Json to a mini database
-Considerations: How much data should retain?
-Fields: Date/Time, Stat Name, Stat Change, Prior Value, Value After, Self Preservation
-
-Record how often it's taken care of, versus Self Preservation.
-
-### Phase Three ###
-
 Consider GUI
 Simple Face :) :| :( to start
 Action Buttons
@@ -95,8 +87,22 @@ Save/Quit
 Status Bars for each state
 Determine the math for the state on average (ie 47 Hunger, 29 Sleep, 9 Hydrate should be.. What?)
 
-### Phase Four ###
+### Phase Three ###
 
+Convert Json to a mini database
+Considerations: How much data should retain?
+Fields: Date/Time, Stat Name, Stat Change, Prior Value, Value After, Self Preservation
+
+Record how often it's taken care of, versus Self Preservation.
+
+### Phase Four ###
+Animation to Graphics/GUI
+Tamagotchi animation
+Button Animation
+Flow between clicks
+Progress bar movement
+
+### Phase Five ###
 !!!! ML/AI -> I don't know too much about this yet, but the two ideas I have are listed below:
 
 ML -> Machine Learning:
