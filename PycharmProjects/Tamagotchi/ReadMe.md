@@ -96,10 +96,10 @@ Fields: Date/Time, Stat Name, Stat Change, Prior Value, Value After, Self Preser
 Record how often it's taken care of, versus Self Preservation.
 
 ### Phase Four ###
-Animation to Graphics/GUI
-Tamagotchi animation
-Button Animation
-Flow between clicks
+Animation to Graphics/GUI:
+Tamagotchi animation 
+Button Animation 
+Flow between clicks 
 Progress bar movement
 
 ### Phase Five ###
