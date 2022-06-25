@@ -25,7 +25,9 @@ sad = str(':(')
 tama = ttk.Frame(root)
 tama.pack()
 tama.config(padding=(100,100))
-tamacharacter = ttk.Label(tama, text=happy).grid()
+tamacharacter = ttk.Label(tama, text=happy)
+tamacharacter.config(background="white")
+tamacharacter.pack()
 
 tama_two = ttk.Frame(root)
 
