@@ -18,9 +18,10 @@ import sqlite3
 from datetime import datetime
 from pip._vendor.distlib.compat import raw_input
 
+
 ###### Any variable set ups
 dbtest = "Tama_Stats.db"
-Hunger = 0
+Hunger = 10
 Sleep = 0
 Hydration = 0
 
@@ -69,7 +70,7 @@ def __init__():
         Sleep = 100
         Hydration = 100
 
-        # name = input("What do you want to name your Tamagotchi?")
+        # name = input("What do you want to name your Tamagotchi_V1?")
         # tz = input("What timezone are you in?")
         # print("Hi " + name + "!")
 
@@ -85,13 +86,14 @@ def __init__():
         Hunger = resumevalues("Hunger")
         Hydration = resumevalues("Hydration")
 
-
 #############################################################################################
+######  Pull the latest Data
 def resumevalues(valuetest):
-    db = sqlite3.connect("test.db")
+    db = sqlite3.connect(dbtest)
     cur = db.cursor()
+    curvalue = 0
 
-    get_latest_stat = "SELECT stat_after FROM temp WHERE stat_name =? ORDER BY ID DESC LIMIT 1 "
+    get_latest_stat = "SELECT stat_after FROM stat_detail WHERE stat_name =? ORDER BY ID DESC LIMIT 1 "
     cur.execute(get_latest_stat,(valuetest,))
 
     for row in cur:
@@ -102,19 +104,8 @@ def resumevalues(valuetest):
 
     return curvalue
 #############################################################################################
-###### No Longer Need #####
-# with open("Param.json", "r") as file:
-#     stat = json.load(file)
-#############
-#############################################################################################
-######  Pull the latest Data
 
-
-#############################################################################################
-
-#############################################################################################
 def background():
-    # time_start = time.time()
     seconds = 0
     minutes = 0
     startfeeling = False
@@ -142,55 +133,61 @@ def background():
             startfeeling = True
 
 #############################################################################################
-### If the system subtracts, theres an error unless inside the case statement. Kind of odd.
-
+def doingmath(valuename,value, valuechange, optype):
+    match optype:
+        case True:
+            result = value + valuechange
+            if result > 100:
+                result = 100
+            print(f"{valuename} went from {value} to {result}")
+            return result
+        case False:
+            result = value - valuechange
+            print(f"{valuename} went from {value} to {result}")
+            return result
 def changevalues(hungerchange, sleepchange, hydratechange, math):
 
 #############################Hunger#########################
         if hungerchange > 0:
+            prior_value = Hunger
+            updated_value = doingmath("Hunger", prior_value, hungerchange, math)
             match math:
                 case True:
-                    changeh = Hunger + hungerchange
                     degrade = False
-                    print("Hunger has increased by " + str(hungerchange) + "from" + str(Hunger))
-                    if changeh > 100:
-                        changeh = 100
+                    update_table("Hunger", str(prior_value), str(updated_value), str(degrade), "False")
+                    print("True Case Hunger Completed.")
                 case False:
-                    changeh = Hunger - hungerchange
                     degrade = True
-                    print("Hunger has decreased by " + str(hungerchange))
-            update_table("Hunger",str(Hunger),str(changeh), str(degrade), "False")
-            print("ok- Hunger updated")
+                    update_table("Hunger", str(prior_value), str(updated_value), str(degrade), "False")
+                    print("False Case Hunger Completed.")
+
+
 #############################Sleep#########################
         if sleepchange > 0:
+            prior_value = Sleep
+            updated_value = doingmath("Sleep", prior_value, hungerchange, math)
             match math:
                 case True:
-                    changes = Sleep + sleepchange
                     degrade = False
-                    print("Sleep has increased by " + str(sleepchange))
-                    if changes > 100:
-                        changes = 100
+                    update_table("Sleep", str(prior_value), str(updated_value), str(degrade), "False")
+                    print("True Case Sleep Completed.")
                 case False:
-                    changes = Sleep - sleepchange
                     degrade = True
-                    print("Sleep has decreased by " + str(sleepchange))
-            update_table("Sleep", str(Sleep), str(changes), str(degrade), "False")
-            print("ok- Sleep updated")
+                    update_table("Sleep", str(prior_value), str(updated_value), str(degrade), "False")
+                    print("False Case Sleep Completed.")
 #############################Hydration#########################
         if hydratechange > 0:
+            prior_value = Hydration
+            updated_value = doingmath("Hydration", prior_value, hungerchange, math)
             match math:
                 case True:
-                    changehy = Hydration + hydratechange
                     degrade = False
-                    print("Sleep has increased by " + str(hydratechange))
-                    if changes > 100:
-                        changes = 100
+                    update_table("Hydration", str(prior_value), str(updated_value), str(degrade), "False")
+                    print("True Case Hydration Completed.")
                 case False:
-                    changehy = Hydration - hydratechange
                     degrade = True
-                    print("Sleep has decreased by " + str(sleepchange))
-            update_table("Sleep", str(Sleep), str(changes), str(degrade), "False")
-            print("ok- Hydration updated")
+                    update_table("Hydration", str(prior_value), str(updated_value), str(degrade), "False")
+                    print("False Case Hydration Completed.")
 
 #############################Self Preservation Check#########################
         # if temp[1] < 20 and not math:
@@ -235,9 +232,6 @@ def died():
 def quitting():
     print("quitting")
     print("Saving the stats below")
-    # print(list(stat))
-    # with open("Param.json", "w") as json_file:
-    #     json.dump(list(stat), json_file)
     exit()
 
 

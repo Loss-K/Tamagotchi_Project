@@ -54,7 +54,7 @@ if nodbexist:
                 "'self_pres' boolean)")
 
 
-    #name = input("What do you want to name your Tamagotchi?")
+    #name = input("What do you want to name your Tamagotchi_V1?")
     #tz = input("What timezone are you in?")
     #print("Hi " + name + "!")
 
