@@ -1,7 +1,6 @@
 import threading
 import schedule
 import time
-import GameLoop
 
 
 class scheduler_job:
@@ -21,23 +20,22 @@ class scheduler_job:
                     schedule.run_pending()
                     time.sleep(interval)
 
-        print("-----")
-        print(threading.enumerate())
-        print("-----")
-        print(threading.active_count())
-
         continuous_thread = ScheduleThread()
         continuous_thread.name = "thread_background"
-        print(continuous_thread.name)
-        print(continuous_thread)
         continuous_thread.start()
 
         return cease_continuous_run
 
     def plan_job(self):
-        self.posture_job = schedule.every(2).minutes.do(GameLoop.theGameloop().start_game).tag('alljobs')
+        self.posture_job = schedule.every(2).minutes.do(self.consist_decrease).tag('alljobs')
         print(self.posture_job)
         self.activate()
+
+    def consist_decrease(self):
+        hchange = -12.5
+        schange = -16
+        hychange = -6
+        print("Stats would decrease")
 
     def activate(self):
         # Start the background thread

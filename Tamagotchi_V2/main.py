@@ -1,4 +1,3 @@
-import GameLoop
 import Stats
 import Tama
 import UI_V4
