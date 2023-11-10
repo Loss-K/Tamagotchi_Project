@@ -9,7 +9,7 @@ stats = Stats.TStats(100, 100, 50)
 bob = Tama.Tamagotchi("Bob", 0, stats)
 
 
-#Bringup the UI and Tamagotchi
+#Bring up the UI and Tamagotchi
 if __name__ == "__main__":
     Background_Threads.scheduler_job().plan_job()
     UI_V4.main()

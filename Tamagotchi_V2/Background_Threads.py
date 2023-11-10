@@ -2,7 +2,6 @@ import threading
 import schedule
 import time
 
-
 class scheduler_job:
     def __init__(self):
         super().__init__()
